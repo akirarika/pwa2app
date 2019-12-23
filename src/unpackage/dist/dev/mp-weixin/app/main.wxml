@@ -1,0 +1,1 @@
+<view class="box"><view>aaa</view><view data-ref="block" class="block vue-ref"></view><view data-ref="text" class="vue-ref">aaa</view></view>

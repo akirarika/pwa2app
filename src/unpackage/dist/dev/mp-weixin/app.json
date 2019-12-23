@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "app/main",
+    "app/error"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap22.json"
+}

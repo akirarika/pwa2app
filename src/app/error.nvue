@@ -1,0 +1,29 @@
+<style>
+	.box {
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+	}
+</style>
+
+<template>
+	<view class="box">
+		<p>error</p>
+		<p>error</p>
+		<p>error</p>
+		<p>error</p>
+		<p>error</p>
+		<p>error</p>
+		<p>error</p>
+		<p>error</p>
+		<p>error</p>
+		<p>error</p>
+	</view>
+</template>
+
+<script>
+	export default {
+		
+	}
+</script>

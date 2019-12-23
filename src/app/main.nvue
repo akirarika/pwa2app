@@ -1,0 +1,112 @@
+<style>
+	.box {
+		flex: 1;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+		width: 750rpx;
+	}
+
+	.block {
+		opacity: 0;
+		width: 300rpx;
+		height: 300rpx;
+		margin-bottom: 32rpx;
+	}
+
+	.text {
+		opacity: 0;
+	}
+</style>
+
+<template>
+	<view class="box">
+		<image ref="block" :src="loadingImage" class="block" mode="aspectFit"></image>
+		<view ref="text" class="text">{{ firstOpened ? loadingText : loadingFirstText}}</view>
+	</view>
+</template>
+
+<script>
+	const Binding = weex.requireModule('bindingx')
+
+	export default {
+		data: {
+			url: 'http://192.168.0.135:8080/', // 你的渐进式 web 应用的网址
+			loadingImage: '/static/loading.gif',
+			loadingFirstText: '首次启动速度较慢，且必须连接以太网哦',
+			loadingText: '非首次启动中',
+			options: {
+				'uni-app': 'none',
+				additionalHttpHeaders: { // 所携带的 header
+					'X-App': 1,
+				},
+			},
+			world: null,
+			firstOpened: uni.getStorageSync('first_opened'),
+			height: 0,
+		},
+        onBackPress(options) {
+			console.log(options)
+            if (options.from === 'navigateBack') {
+                return false;
+            }
+            this.back();
+            return true;
+        },
+		methods: {
+			initializeWorld() {
+				plus.navigator.closeSplashscreen()
+				this.world = plus.webview.create(void(0), "world", this.options)
+				this.world.overrideUrlLoading({
+					mode: 'allow',
+					match: (this.url.replace(/(\.)/, '\.') + '.*')
+				}, (e) => {
+					plus.runtime.openURL(e.url)
+				})
+				setTimeout(() => {
+					if (this.world.isVisible()) return
+					if (plus.networkinfo.getCurrentType() < 2) this.toError(0)
+					else this.toError(1)
+				}, 8848)
+				this.world.loadURL(this.url)
+				uni.setStorageSync('first_opened', true)
+			},
+			loading() {
+				Binding.bind({
+					eventType: 'timing',
+					exitExpression: 't>600',
+					props: [{
+						element: this.getEl(this.$refs.block),
+						property: 'transform.scale',
+						expression: "easeOutQuint(t,0,1,600)"
+					}, {
+						element: this.getEl(this.$refs.block),
+						property: 'opacity',
+						expression: "easeOutQuint(t,0,1,600)"
+					}, {
+						element: this.getEl(this.$refs.text),
+						property: 'opacity',
+						expression: "easeOutQuint(t,0,1,600)"
+					}]
+				})
+			},
+			getEl(e) {
+				return e.ref;
+			},
+			toError() {
+				uni.redirectTo({
+					url: './error'
+				})
+			}
+		},
+		onLoad() {
+			// #ifdef APP-PLUS
+			this.initializeWorld()
+			setTimeout(() => {
+				this.loading()
+			}, 0)
+			// #endif
+		},
+	}
+</script>
