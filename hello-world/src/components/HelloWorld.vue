@@ -13,7 +13,7 @@
         <router-link to="/about">跳转到 About 路由</router-link>
       </li>
       <li>
-        <a href="/hello.html" target="_blank" rel="noopener">跳转到此域下的另一个网页</a>
+        <a href="https://akirarika.github.io/pwa2app/hello.html" target="_blank" rel="noopener">跳转到此域下的另一个网页</a>
       </li>
       <li>
         <a href="https://m.bilibili.com/index.html" target="_blank" rel="noopener">跳转到 Bilibili</a>

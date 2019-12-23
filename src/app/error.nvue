@@ -9,16 +9,7 @@
 
 <template>
 	<view class="box">
-		<p>error</p>
-		<p>error</p>
-		<p>error</p>
-		<p>error</p>
-		<p>error</p>
-		<p>error</p>
-		<p>error</p>
-		<p>error</p>
-		<p>error</p>
-		<p>error</p>
+		<p>这是一个错误页面，当加载出错或超时会来到这里哦</p>
 	</view>
 </template>
 

@@ -32,7 +32,7 @@
 
 	export default {
 		data: {
-			url: 'http://192.168.0.135:8080/', // 你的渐进式 web 应用的网址
+			url: 'https://akirarika.github.io/pwa2app/', // 你的渐进式 web 应用的网址
 			loadingImage: '/static/loading.gif',
 			loadingFirstText: '首次启动速度较慢，且必须连接以太网哦',
 			loadingText: '非首次启动中',
