@@ -8,7 +8,7 @@
 
 接下来就是选择一款跨平台 App 开发框架，来实现这个想法了！但做出这个选择却并不轻松。
 
-我起初想用 [Cordova](https://cordova.apache.org/) 来实现需求，但遗憾的是，Cordova 在离线状态下会粗暴地弹出无法访问对话框。
+我起初想用 [Cordova](https://cordova.apache.org/) 来实现需求，遗憾的是，Cordova 在离线状态下会粗暴地弹出无法访问对话框。
 
 接着尝试过用 [React Native](https://facebook.github.io/react-native/), [Weex](https://weex.apache.org/), [Flutter](https://flutter.dev/) 等跨平台框架，但他们的 webview 都有各种各样的问题 (其中 Weex 过于简洁而 Flutter bug 颇多)，而且实现一些偏底层的功能封装度不够。
 
@@ -51,7 +51,7 @@ data: {
 
 打开 `/manifest.json`: `基础配置` => `uni-app应用标识(AppID)` => 点击 `重新获取`
 
-在 `/manifest.json` 中修改应用名称、描述、图标等为你想要的。**但不要修改启动图片，原因下文会解释**
+在 `/manifest.json` 中修改应用名称、描述、图标等为你想要的。**但不要修改启动图片**，原因下文会解释。
 
 单击 `发行` => `原生App-云打包`，修改 `包名` 和 `证书`，之后点确定，耐心等待云打包完成。
 
