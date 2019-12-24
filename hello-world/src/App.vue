@@ -36,6 +36,7 @@ export default {
   created() {
     document.addEventListener("plusready", () => {
       const world = plus.webview.currentWebview() // 获取当前 webview 对象
+      const mainActivity = plus.android.runtimeMainActivity() // 你 Android 程序的 mainActivity
 
       // 应用加载完成时，调用此函数来显示 webview 隐藏加载状态
       // 不调用的话你的应用会永远加载喔，一开始就调用的话会显示白屏和加载部分，体验不好
@@ -48,8 +49,10 @@ export default {
         plus.key.addEventListener("backbutton", () => {
           // 监听用户返回键
           world.canBack(e => {
-            if (e.canBack) this.$router.go(-1) // 如果可以返回就返回上一页 (这里是vue写法，可以改成你想要的)
-            else plus.android.runtimeMainActivity().moveTaskToBack(false) // 如果不能返回就回退到桌面（而不是销毁）
+            if (e.canBack) this.$router.go(-1) // 如果可以返回就返回上一页 (这里是vue写法)
+            // if (e.canBack) history.back() // 原生的返回上一页
+            else mainActivity.moveTaskToBack(false) // 如果不能返回，就回保留后台回到桌面（而不是销毁）
+            // else plus.runtime.quit() // 如果想销毁而不是保留后台，则使用此代码
           })
         })
       }

@@ -33,9 +33,9 @@
 	export default {
 		data: {
 			url: 'https://akirarika.github.io/pwa2app/', // 你的渐进式 web 应用的网址
-			loadingImage: '/static/loading.gif',
-			loadingFirstText: '首次启动速度较慢，且必须连接以太网哦',
-			loadingText: '非首次启动中',
+			loadingImage: '/static/loading.gif', // 加载中的 loading 图
+			loadingFirstText: '首次启动必须连接以太网', // 首次启动的提示文字
+			loadingText: '正在努力启动', // 非首次启动的提示文字
 			options: {
 				'uni-app': 'none',
 				additionalHttpHeaders: { // 所携带的 header

@@ -24,7 +24,8 @@
         "modules" : {
             "Push" : {},
             "Speech" : {},
-            "Statistic" : {}
+            "Statistic" : {},
+            "Fingerprint" : {}
         },
         /* 应用发布信息 */
         "distribute" : {
@@ -39,10 +40,11 @@
                     "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
                     "<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>",
                     "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+                    "<uses-permission android:name=\"android.permission.USE_FINGERPRINT\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
                     "<uses-permission android:name=\"android.permission.RECEIVE_USER_PRESENT\"/>"
                 ],
-                "abiFilters" : [ "armeabi-v7a", "arm64-v8a" ],
+                "abiFilters" : [ "armeabi-v7a", "arm64-v8a", "x86" ],
                 "minSdkVersion" : 22,
                 "targetSdkVersion" : 28
             },
@@ -68,6 +70,35 @@
                     "hdpi" : "unpackage/1px.png",
                     "xhdpi" : "unpackage/1px.png",
                     "xxhdpi" : "unpackage/1px.png"
+                },
+                "ios" : {
+                    "iphone" : {
+                        "portrait-896h@3x" : "unpackage/1px.png",
+                        "landscape-896h@3x" : "unpackage/1px.png",
+                        "portrait-896h@2x" : "unpackage/1px.png",
+                        "landscape-896h@2x" : "unpackage/1px.png",
+                        "iphonex" : "unpackage/1px.png",
+                        "iphonexl" : "unpackage/1px.png",
+                        "retina55" : "unpackage/1px.png",
+                        "retina55l" : "unpackage/1px.png",
+                        "retina47" : "unpackage/1px.png",
+                        "retina47l" : "unpackage/1px.png",
+                        "retina40" : "unpackage/1px.png",
+                        "retina40l" : "unpackage/1px.png",
+                        "retina35" : "unpackage/1px.png"
+                    },
+                    "ipad" : {
+                        "portrait-1366h@2x" : "unpackage/1px.png",
+                        "landscape-1366h@2x" : "unpackage/1px.png",
+                        "portrait-1194h@2" : "unpackage/1px.png",
+                        "landscape-1194h@2x" : "unpackage/1px.png",
+                        "portrait-1112h@2x" : "unpackage/1px.png",
+                        "landscape-1112h@2x" : "unpackage/1px.png",
+                        "portrait-retina7" : "unpackage/1px.png",
+                        "landscape-retina7" : "unpackage/1px.png",
+                        "portrait7" : "unpackage/1px.png",
+                        "landscape7" : "unpackage/1px.png"
+                    }
                 }
             }
         }
