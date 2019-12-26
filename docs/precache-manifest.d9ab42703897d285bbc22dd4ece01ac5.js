@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pwa2app/css/app.245b44e5.css"
   },
   {
-    "revision": "f51108c2ec4f4c7aa732127c6d9b70af",
+    "revision": "439e546b094a8d8b9e0b7ad8c66de5ce",
     "url": "/pwa2app/hello.html"
   },
   {
